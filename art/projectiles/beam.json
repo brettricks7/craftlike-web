@@ -1,0 +1,9 @@
+{
+  "frameCount": 1,
+  "fps": 12,
+  "anims": {
+    "pulse": [0, 0],
+    "idle": [0]
+  },
+  "_bob": "Day 229 — elongation + trail in projectile.js; swap stamp here when ready"
+}

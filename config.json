@@ -1,0 +1,29 @@
+{
+  "title": "Craftlike",
+  "debug": true,
+  "debugOfferMenu": false,
+  "debugForge": false,
+
+  "steam": {
+    "enabled": false,
+    "appId": 0
+  },
+
+  "seed": null,
+
+  "window": {
+    "width": 1280,
+    "height": 720,
+    "resizable": true
+  },
+
+  "arena": {
+    "width": 1280,
+    "height": 720
+  },
+
+  "simulation": {
+    "hz": 60,
+    "maxCatchUpSteps": 5
+  }
+}

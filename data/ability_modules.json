@@ -1,0 +1,66 @@
+{
+  "_comment": "Cooldown ability modules (Phase A). Try-and-feel — Gaben may cut. Blink is locked as Ability A starter (CEO-proxy Day 061). Runtime lands Days 064–068.",
+
+  "modules": [
+    {
+      "id": "blink",
+      "name": "Blink-Dash",
+      "archetype": "mobility",
+      "icon": "💨",
+      "art": "art/abilities/blink.png",
+      "fx": "blink",
+      "cooldown": 1.8,
+      "duration": 0.16,
+      "speedMult": 3.2,
+      "invuln": 0.2,
+      "tags": ["air"],
+      "offerable": false,
+      "_note": "Absorbs former player.dash knobs. Not offerable — always starter Ability A."
+    },
+    {
+      "id": "shield",
+      "name": "Aegis Film",
+      "archetype": "defense",
+      "icon": "🛡️",
+      "art": "art/abilities/shield.png",
+      "fx": "shield",
+      "cooldown": 6.0,
+      "duration": 1.2,
+      "absorb": 25,
+      "tags": ["mass"],
+      "offerable": true,
+      "_note": "Day 066 CEO-proxy: ship absorb (not i-frames) — readable HP pool, stacks with Blink invuln."
+    },
+    {
+      "id": "pull",
+      "name": "Vacuole Tug",
+      "archetype": "control",
+      "icon": "🌀",
+      "art": "art/abilities/pull.png",
+      "fx": "pull",
+      "cooldown": 5.0,
+      "duration": 0.45,
+      "radius": 180,
+      "force": 420,
+      "tags": ["gravity"],
+      "offerable": true
+    },
+    {
+      "id": "nova",
+      "name": "Burst Membrane",
+      "archetype": "burst",
+      "icon": "💥",
+      "art": "art/abilities/nova.png",
+      "fx": "nova",
+      "cooldown": 7.0,
+      "radius": 120,
+      "damage": 18,
+      "knockback": 220,
+      "tags": ["heat"],
+      "offerable": true,
+      "_note": "Utility burst — keep secondary to Attack DPS identity. Day 068 CEO-proxy: ship as utility AoE, not primary DPS."
+    }
+  ],
+
+  "unlockedStart": ["blink"]
+}

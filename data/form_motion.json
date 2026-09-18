@@ -1,0 +1,33 @@
+{
+  "_comment": "Presentation-only procedural shot motion (Day 261). Never read by src/world.js.",
+  "_day": 261,
+  "forms": {
+    "bolt": {
+      "bobAmp": 2.2,
+      "bobHz": 14,
+      "scalePulse": 0.08,
+      "scaleHz": 12
+    },
+    "beam": {
+      "stretchBase": 2.65,
+      "stretchPulse": 0.16,
+      "stretchHz": 22,
+      "trailSegments": 3,
+      "thicknessRatio": 0.38
+    },
+    "spray": {
+      "flutterAmp": 3.8,
+      "flutterHz": 28,
+      "scalePulse": 0.14,
+      "scaleHz": 18,
+      "squash": 0.82
+    },
+    "rocket": {
+      "corkscrewAmp": 5.5,
+      "corkscrewHz": 6,
+      "spinHz": 4.5,
+      "exhaustSegments": 2,
+      "stretch": 1.35
+    }
+  }
+}

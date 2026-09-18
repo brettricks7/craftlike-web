@@ -1,0 +1,109 @@
+{
+  "_comment": "A run is one patient — lateral variety, not a difficulty Act. Seed picks via rng.stream('patient'). roomPool is the Day 172 space template; rupture/suction is Day 176.",
+  "patients": [
+    {
+      "id": "plaque",
+      "name": "Plaque-choked",
+      "blurb": "Fat lumen. Tight kite. Drill and spray matter.",
+      "weight": 1,
+      "roomPool": ["pillars", "funnel", "split_lanes", "zigzag_corridor", "ring_gallery"],
+      "bg": "#100c08",
+      "grid": "rgba(212,160,23,0.08)",
+      "look": {
+        "fill": "#1a1410",
+        "edge": "#d4a017",
+        "neon": "rgba(212, 160, 23, 0.55)"
+      },
+      "props": [
+        { "id": "plaque_node", "x": 96, "y": 96, "size": 48 }
+      ]
+    },
+    {
+      "id": "thinwall",
+      "name": "Thin-walled",
+      "blurb": "Fragile arteries. Walls can rupture — don't linger at a breach.",
+      "weight": 1,
+      "roomPool": ["open", "ring_gallery", "split_lanes", "pillars", "funnel"],
+      "bg": "#14080c",
+      "grid": "rgba(255,107,138,0.08)",
+      "look": {
+        "fill": "#1c1014",
+        "edge": "#ff6b8a",
+        "neon": "rgba(255, 107, 138, 0.55)"
+      },
+      "props": [
+        { "id": "membrane_fold", "x": 1180, "y": 80, "size": 44 }
+      ],
+      "wallHp": 40,
+      "suction": {
+        "_tune": "Day 178 burst + Day 224 scab. force < walk speed; burst fades → scab seals breach; scabHp chips fast, reburst shorter.",
+        "radius": 150,
+        "force": 150,
+        "enemyForceMult": 2.2,
+        "dps": 18,
+        "life": 2.5,
+        "ventRadius": 30,
+        "ventDps": 60,
+        "scabHp": 12,
+        "reburstLifeMult": 0.4
+      }
+    },
+    {
+      "id": "neural",
+      "name": "Neural-webbed",
+      "blurb": "Hot magenta nerve rails — fire or get hit → telegraph → pressure pulse. Step off to survive.",
+      "weight": 1,
+      "roomPool": ["nerve_tutorial", "nerve_corridor", "zigzag_corridor", "split_lanes", "ring_gallery", "funnel", "pillars"],
+      "roomCurriculum": {
+        "_tune": "Day 213 — first chamber teaches nerve rail verb before denser layouts.",
+        "teachRoom": "nerve_tutorial",
+        "maxDepth": 0
+      },
+      "bg": "#120a18",
+      "grid": "rgba(224,64,251,0.08)",
+      "look": {
+        "fill": "#1a1024",
+        "edge": "#e040fb",
+        "neon": "rgba(224, 64, 251, 0.55)",
+        "wallPattern": "neural"
+      },
+      "props": [
+        { "id": "synapse_node", "x": 120, "y": 600, "size": 42 },
+        { "id": "axon_filament", "x": 1160, "y": 140, "size": 44 }
+      ],
+      "nerveRails": {
+        "_tune": "Day 212 — fire/hit on rail → telegraph → pressure pulse if still on rail. Step off to survive.",
+        "telegraphDelay": 0.75,
+        "pulseDamage": 22,
+        "layouts": {
+          "_default": [
+            { "x": 580, "y": 340, "w": 120, "h": 36 }
+          ],
+          "nerve_tutorial": [
+            { "x": 380, "y": 338, "w": 520, "h": 44 }
+          ],
+          "nerve_corridor": [
+            { "x": 618, "y": 180, "w": 44, "h": 360 }
+          ],
+          "zigzag_corridor": [
+            { "x": 430, "y": 308, "w": 420, "h": 24 },
+            { "x": 430, "y": 388, "w": 420, "h": 24 }
+          ],
+          "split_lanes": [
+            { "x": 608, "y": 290, "w": 64, "h": 140 }
+          ],
+          "ring_gallery": [
+            { "x": 520, "y": 332, "w": 240, "h": 24 },
+            { "x": 628, "y": 250, "w": 24, "h": 220 }
+          ],
+          "funnel": [
+            { "x": 500, "y": 342, "w": 280, "h": 28 }
+          ],
+          "pillars": [
+            { "x": 580, "y": 338, "w": 120, "h": 44 }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "frameCount": 2,
+  "fps": 12,
+  "anims": { "idle": [0], "move": [0, 1] }
+}

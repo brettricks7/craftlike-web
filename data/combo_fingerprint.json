@@ -1,0 +1,20 @@
+{
+  "_comment": "Presentation-only hive tag-set combination fingerprint (Day 263). Never read by src/world.js sim.",
+  "_day": 263,
+  "strength": 0.78,
+  "orbitAmpMin": 8,
+  "orbitAmpMax": 10.5,
+  "orbitHzMin": 4,
+  "orbitHzMax": 10,
+  "rhythmMin": 0.72,
+  "rhythmMax": 1.48,
+  "stripeAmpMin": 0.2,
+  "stripeAmpMax": 0.38,
+  "stripeHzMin": 10,
+  "stripeHzMax": 22,
+  "scaleBiasMin": 0.88,
+  "scaleBiasMax": 1.14,
+  "stretchBiasMin": 0.9,
+  "stretchBiasMax": 1.12,
+  "accentWashAlpha": 0.36
+}

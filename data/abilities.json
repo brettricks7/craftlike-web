@@ -1,0 +1,229 @@
+{
+  "_comment": "Crafting rules. combineRules controls how two elements' stats merge (blend factor, per-tier growth, seeded jitter, clamps). effectBlocks map tags to gameplay effects. naming builds procedural ability names. Wiggle any number here and re-run `python manage.py test` \u2014 the determinism tests re-verify every interaction.",
+  "maxTags": 3,
+  "combineRules": {
+    "damage": {
+      "blend": 0.75,
+      "tierFactor": 1.14,
+      "tierScaleCap": 1,
+      "jitter": 0.1,
+      "min": 1,
+      "max": 48,
+      "_tierScaleCapNote": "Day 186 — cap effective tier at 1 for exponential scaling; keeps t0→1 spike linear but prevents t2+ exponential god axis"
+    },
+    "speed": {
+      "blend": 0.55,
+      "tierFactor": 1.02,
+      "tierScaleCap": 1,
+      "jitter": 0.08,
+      "min": 120,
+      "max": 900
+    },
+    "radius": {
+      "blend": 0.6,
+      "tierFactor": 1.04,
+      "tierScaleCap": 1,
+      "jitter": 0.1,
+      "min": 3,
+      "max": 28
+    },
+    "cooldown": {
+      "blend": 0.55,
+      "tierFactor": 0.98,
+      "tierScaleCap": 1,
+      "jitter": 0.08,
+      "min": 0.28,
+      "max": 1.5
+    },
+    "range": {
+      "blend": 0.55,
+      "tierFactor": 1.03,
+      "tierScaleCap": 1,
+      "jitter": 0.05,
+      "min": 200,
+      "max": 900
+    },
+    "knockback": {
+      "blend": 0.6,
+      "tierFactor": 1.05,
+      "tierScaleCap": 1,
+      "jitter": 0.15,
+      "min": 0,
+      "max": 400
+    }
+  },
+  "effectBlocks": {
+    "heat": {
+      "effect": "burn",
+      "dps": 7,
+      "duration": 2.5,
+      "color": "#ff6b35",
+      "icon": "\ud83d\udd25"
+    },
+    "cold": {
+      "effect": "chill",
+      "slow": 0.55,
+      "duration": 2.0,
+      "color": "#5bc8ff",
+      "icon": "\u2744\ufe0f"
+    },
+    "shock": {
+      "effect": "chain",
+      "jumps": 3,
+      "range": 170,
+      "falloff": 0.65,
+      "color": "#ffe34d",
+      "icon": "\u26a1"
+    },
+    "toxic": {
+      "effect": "poison",
+      "dps": 5,
+      "duration": 5.0,
+      "color": "#7cfc00",
+      "icon": "\ud83c\udf44"
+    },
+    "mass": {
+      "effect": "stagger",
+      "knockbackBonus": 160,
+      "color": "#b08d57",
+      "icon": "\ud83e\udea8"
+    },
+    "air": {
+      "effect": "haste",
+      "cooldownMult": 0.7,
+      "color": "#cfd8dc",
+      "icon": "\ud83c\udf2c\ufe0f"
+    },
+    "flow": {
+      "effect": "split",
+      "splits": 3,
+      "splitDamage": 0.5,
+      "color": "#3a86ff",
+      "icon": "\ud83d\udca7"
+    },
+    "gravity": {
+      "effect": "pull",
+      "force": 200,
+      "radius": 120,
+      "color": "#9b5de5",
+      "icon": "\ud83d\udd73\ufe0f"
+    },
+    "pierce": {
+      "effect": "pierce",
+      "pierces": 3,
+      "color": "#90e0ef",
+      "icon": "\ud83d\udc8e"
+    },
+    "vitality": {
+      "effect": "heal_on_hit",
+      "heal": 2,
+      "color": "#ff8fab",
+      "icon": "\ud83d\udc96",
+      "_note": "Day 099 \u2014 scarce. Keep heal low."
+    }
+  },
+  "naming": {
+    "prefixes": {
+      "heat": [
+        "Blazing",
+        "Searing",
+        "Ember"
+      ],
+      "cold": [
+        "Frozen",
+        "Glacial",
+        "Rime"
+      ],
+      "shock": [
+        "Arcing",
+        "Static",
+        "Storm"
+      ],
+      "toxic": [
+        "Venom",
+        "Blighted",
+        "Fetid"
+      ],
+      "mass": [
+        "Granite",
+        "Crushing",
+        "Tectonic"
+      ],
+      "air": [
+        "Howling",
+        "Zephyr",
+        "Gale"
+      ],
+      "flow": [
+        "Tidal",
+        "Surging",
+        "Rippling"
+      ],
+      "gravity": [
+        "Hollow",
+        "Umbral",
+        "Singular"
+      ],
+      "pierce": [
+        "Prismatic",
+        "Shard",
+        "Lancing"
+      ]
+    },
+    "suffixes": {
+      "heat": [
+        "Flare",
+        "Cinder",
+        "Pyre"
+      ],
+      "cold": [
+        "Shard",
+        "Frostbite",
+        "Hail"
+      ],
+      "shock": [
+        "Bolt",
+        "Arc",
+        "Discharge"
+      ],
+      "toxic": [
+        "Bloom",
+        "Spit",
+        "Miasma"
+      ],
+      "mass": [
+        "Slab",
+        "Maul",
+        "Avalanche"
+      ],
+      "air": [
+        "Gust",
+        "Cutter",
+        "Vortex"
+      ],
+      "flow": [
+        "Tide",
+        "Torrent",
+        "Geyser"
+      ],
+      "gravity": [
+        "Well",
+        "Collapse",
+        "Horizon"
+      ],
+      "pierce": [
+        "Needle",
+        "Lance",
+        "Splinter"
+      ]
+    },
+    "epicChance": 0.04,
+    "epicNames": [
+      "The Unmaker",
+      "Yesterday's Regret",
+      "Friendship Ender",
+      "The Balance Patch",
+      "RNG's Favorite Child"
+    ]
+  }
+}

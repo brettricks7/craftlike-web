@@ -1,0 +1,232 @@
+{
+  "_comment": "Enemy balance. archetypes x affixes composed by the seeded spawner keep enemies fresh without authoring each one. scaling controls per-wave growth. Every number is a balance knob. Puzzle templates (Day 160+): weakTags + weakMult/resistMult — match Attack protein tags to crack the shell. Expand only after fun gate.",
+  "scaling": {
+    "waveInterval": 6.0,
+    "waveAdvanceFraction": 0.25,
+    "minWaveGap": 1.25,
+    "countBase": 2,
+    "countPerWave": 0.85,
+    "maxAlive": 40,
+    "hpPerWave": 0.08,
+    "speedPerWave": 0.045,
+    "damagePerWave": 0.055,
+    "affixChancePerWave": 0.05,
+    "affixChanceCap": 0.5,
+    "maxAffixes": 3,
+    "dropChance": 0.42,
+    "eliteDropBonus": 0.25,
+    "spawnMargin": 30
+  },
+  "curriculum": {
+    "_tune": "Day 165–166 — teach puzzle templates early without flooding later depths.",
+    "rangedPressure": {
+      "_tune": "Day 181 — turret-breaker: from minDepth every wave carries ranged fire; stand-still cannot face-tank spit forever.",
+      "archetypeId": "spitter",
+      "minDepth": 1
+    },
+    "puzzleTeach": {
+      "archetypeId": "carapace",
+      "maxDepth": 1,
+      "guaranteeOnWave": 2,
+      "earlyWeightMult": 3,
+      "lateWeightMult": 0.35
+    },
+    "puzzleTeachB": {
+      "archetypeId": "cryocyst",
+      "maxDepth": 2,
+      "guaranteeOnWave": 3,
+      "minDepth": 0,
+      "earlyWeightMult": 3.5,
+      "lateWeightMult": 0.4
+    },
+    "neuralPressure": {
+      "_tune": "Day 215 — neural-only anti-stall / no turret cheese. Reuses spitter + skitter; plaque/thinwall spawn curves unchanged.",
+      "ranged": {
+        "archetypeId": "spitter",
+        "minDepth": 0
+      },
+      "mover": {
+        "archetypeId": "skitter",
+        "minDepth": 0
+      }
+    }
+  },
+  "archetypes": [
+    {
+      "id": "chaser",
+      "name": "Stalker Strain",
+      "weight": 5,
+      "hp": 20,
+      "speed": 110,
+      "damage": 12,
+      "radius": 18,
+      "color": "#9d4edd",
+      "xp": 25
+    },
+    {
+      "id": "darter",
+      "name": "Dart Strain",
+      "weight": 3,
+      "hp": 10,
+      "speed": 190,
+      "damage": 5,
+      "radius": 9,
+      "color": "#f77f00",
+      "xp": 15
+    },
+    {
+      "id": "spitter",
+      "name": "Spit Colony",
+      "weight": 3,
+      "hp": 22,
+      "speed": 85,
+      "damage": 6,
+      "radius": 11,
+      "color": "#80ffdb",
+      "xp": 18,
+      "behavior": "ranged",
+      "preferDistance": 240,
+      "projectile": {
+        "_comment": "Gaben CEO-proxy: readable slow spit — punish stand-still, not one-shot. Day 250: orbit-band windup hold + step-off dodge; spit chip 5 (body contact stays 6).",
+        "damage": 5,
+        "speed": 70,
+        "radius": 5,
+        "range": 360,
+        "cooldown": 2.2,
+        "windupSec": 0.45,
+        "color": "#80ffdb",
+        "knockback": 10
+      }
+    },
+    {
+      "id": "skitter",
+      "name": "Flank Strain",
+      "weight": 3,
+      "hp": 14,
+      "speed": 155,
+      "damage": 7,
+      "radius": 10,
+      "color": "#ff006e",
+      "xp": 16,
+      "behavior": "flank",
+      "preferDistance": 110,
+      "_comment": "Gaben CEO-proxy: side-orbit then pounce — punish wall-kite."
+    },
+    {
+      "id": "carapace",
+      "name": "Shell Cyst",
+      "weight": 2,
+      "hp": 28,
+      "speed": 70,
+      "damage": 10,
+      "radius": 16,
+      "color": "#ffb703",
+      "xp": 28,
+      "behavior": "chase",
+      "weakTags": ["heat"],
+      "weakMult": 2.4,
+      "resistMult": 0.55,
+      "_template": "Day 160 puzzle template — plated unless Attack carries heat; composition hook for later scale.",
+      "_comment": "Amber shell tell. Wrong protein chips away; heat cracks it."
+    },
+    {
+      "id": "cryocyst",
+      "name": "Frost Cyst",
+      "weight": 2,
+      "hp": 30,
+      "speed": 75,
+      "damage": 10,
+      "radius": 15,
+      "color": "#90e0ef",
+      "xp": 26,
+      "behavior": "chase",
+      "weakTags": ["chill", "cold"],
+      "weakMult": 2.4,
+      "resistMult": 0.55,
+      "_template": "Day 166 puzzle template — plated unless Attack carries chill; anti-heat-mono.",
+      "_comment": "Cyan ice shell. Heat shrugs; chill cracks it."
+    },
+    {
+      "id": "infection_core",
+      "name": "Infection Core",
+      "weight": 0,
+      "hp": 420,
+      "speed": 45,
+      "damage": 14,
+      "radius": 28,
+      "color": "#e63946",
+      "xp": 200,
+      "behavior": "boss",
+      "preferDistance": 180,
+      "isBoss": true,
+      "projectile": {
+        "damage": 10,
+        "speed": 140,
+        "radius": 7,
+        "range": 520,
+        "cooldown": 1.2,
+        "color": "#ff006e",
+        "knockback": 20
+      },
+      "_comment": "Gaben CEO-proxy: final node is a hero virus — phases, not more waves."
+    }
+  ],
+  "coreEncounter": {
+    "_comment": "Infection Core script (Day 018). Phases fire once on HP thresholds; victory requires Core dead + adds cleared.",
+    "guardArchetypes": ["spitter", "skitter"],
+    "phaseTelegraphSec": 0.75,
+    "phaseAdds": {
+      "1": { "hpFrac": 0.66, "archetypes": ["skitter", "skitter", "darter"], "count": 3 },
+      "2": { "hpFrac": 0.33, "archetypes": ["spitter", "chaser", "skitter"], "count": 3 }
+    }
+  },
+  "affixes": [
+    {
+      "id": "swift",
+      "name": "Velocity Strain",
+      "tint": "#ffd166",
+      "mults": {
+        "speed": 1.5
+      }
+    },
+    {
+      "id": "armored",
+      "name": "Plated Shell",
+      "tint": "#8d99ae",
+      "mults": {
+        "hp": 2.0,
+        "speed": 0.85
+      }
+    },
+    {
+      "id": "vicious",
+      "name": "Rending",
+      "tint": "#ef233c",
+      "mults": {
+        "damage": 1.6
+      }
+    },
+    {
+      "id": "splitting",
+      "name": "Fission",
+      "tint": "#80ffdb",
+      "mults": {
+        "hp": 1.2
+      },
+      "onDeath": "split",
+      "childCount": 2,
+      "childScale": 0.5
+    },
+    {
+      "id": "giant",
+      "name": "Colossal",
+      "tint": "#fb8500",
+      "mults": {
+        "hp": 1.8,
+        "radius": 1.5,
+        "speed": 0.9,
+        "damage": 1.3
+      }
+    }
+  ]
+}

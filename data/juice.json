@@ -1,0 +1,107 @@
+{
+  "_comment": "Presentation-only knobs (Days 043–049). Never read by src/world.js — renderer juice only.",
+  "hitStop": {
+    "elite": 0.055,
+    "boss": 0.085,
+    "heavyDamageThreshold": 14,
+    "heavy": 0.04,
+    "maxStack": 0.12
+  },
+  "shake": {
+    "enabled": true,
+    "maxOffset": 7,
+    "decay": 14,
+    "clear": 2.6,
+    "eliteHit": 3.5,
+    "bossHit": 6,
+    "heavyHit": 2.5
+  },
+  "clearHeartbeat": {
+    "_day": 226,
+    "duration": 0.28,
+    "pulseAlpha": 0.38,
+    "particleCount": 10,
+    "particleLife": 0.26,
+    "shake": 2.6
+  },
+  "spliceFx": {
+    "duration": 0.42
+  },
+  "labCommit": {
+    "_day": 230,
+    "take": {
+      "duration": 0.36,
+      "particleCount": 10,
+      "shake": 2.8,
+      "stampOuter": "#80ffdb",
+      "stampInner": "#ffd166"
+    },
+    "seat": {
+      "duration": 0.26,
+      "particleCount": 7,
+      "shake": 1.6,
+      "stampOuter": "#ffd166",
+      "stampInner": "#80ffdb"
+    }
+  },
+  "castFx": {
+    "_day": 128,
+    "duration": 0.22,
+    "shake": 1.6,
+    "particleCount": 6
+  },
+  "secretDiscoverFx": {
+    "_day": 231,
+    "duration": 0.28,
+    "pulseAlpha": 0.22,
+    "vignetteColor": "#b388ff"
+  },
+  "synergyFindFx": {
+    "_day": 235,
+    "duration": 0.38,
+    "pulseAlpha": 0.42,
+    "shake": 3.4,
+    "particleCount": 14,
+    "stampOuter": "#4cc9f0",
+    "stampInner": "#ffd166",
+    "vignetteColor": "#4cc9f0"
+  },
+  "patternAlmostFx": {
+    "_day": 260,
+    "duration": 0.22,
+    "pulseAlpha": 0.14,
+    "particleCount": 4,
+    "stampOuter": "#f4a261",
+    "stampInner": "#e9c46a",
+    "vignetteColor": "#f4a261"
+  },
+  "attackFormBeat": {
+    "_day": 239,
+    "duration": 0.32,
+    "shake": 1.2,
+    "particleCount": 8,
+    "stampOuter": "#fbbf24",
+    "stampInner": "#5eead4"
+  },
+  "volatileFuseBeat": {
+    "_day": 246,
+    "duration": 0.34,
+    "shake": 2.2,
+    "particleCount": 10,
+    "stampOuter": "#ef4444",
+    "stampInner": "#fb923c"
+  },
+  "abilityBBeat": {
+    "_day": 240,
+    "duration": 0.28,
+    "shake": 1.0,
+    "particleCount": 6,
+    "stampOuter": "#e040fb",
+    "stampInner": "#80ffdb"
+  },
+  "overpressure": {
+    "pulsePeriod": 1.15,
+    "maxAlpha": 0.2,
+    "barFlashAlpha": 0.45
+  }
+}

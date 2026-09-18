@@ -1,0 +1,34 @@
+{
+  "_comment": "Player balance. Every tunable number for the avatar lives here. Phase A: dash knobs migrate to Ability A (blink) in data/ability_modules.json — keep dash here until Day 064 wires castA.",
+
+  "hp": 110,
+  "speed": 220,
+  "radius": 12,
+  "invulnSeconds": 0.45,
+  "_attritionNote": "Day 167 — shorter i-frames so chip damage scars; heal stays scarce.",
+  "pickupRadius": 28,
+
+  "dash": {
+    "_migrateTo": "ability_modules.blink",
+    "speedMult": 3.2,
+    "duration": 0.16,
+    "cooldown": 1.8,
+    "invuln": 0.2
+  },
+
+  "loadout": {
+    "_schema": "data/loadout.json",
+    "_modules": "data/ability_modules.json",
+    "attackElementId": "pulse",
+    "abilityA": "blink",
+    "abilityB": null
+  },
+
+  "gameOverQuips": [
+    "Skill issue? Run it back.",
+    "The seed remembers. Do you?",
+    "That enemy is telling its friends about you right now.",
+    "Death is just a respawn screen with extra steps.",
+    "Send this seed to a friend you want to suffer."
+  ]
+}

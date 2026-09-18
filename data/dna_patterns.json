@@ -1,0 +1,270 @@
+{
+  "_comment": "Hive DNA — patterns, typed adjacency, slot unlock, offer fill. Tune here; tests guard regressions.",
+  "version": 2,
+  "hex": {
+    "center": "self",
+    "layout": "honeycomb",
+    "ringSlots": 6,
+    "maxRings": 4,
+    "_note": "Beehive: rings 1..4 (60 seats = 3·R·(R+1)); YOU at center. Innermost 6 keep compass patterns."
+  },
+  "slotUnlock": {
+    "_tune": "Unlock DNA slots — change startingSeats / costPerSeat / inventoryCapExtra without code edits.",
+    "mode": "discard",
+    "startingSeats": 3,
+    "costPerSeat": 2,
+    "inventoryCapExtra": 3,
+    "_modeNote": "discard = burn inventory DNA → +1 seat. depth bands ignored while mode=discard."
+  },
+  "adjacency": {
+    "_tune": "Adjacency bonuses — per shared-tag edge. shotTag drives projectile stamp; axes stack (capped in code).",
+    "fallbackDamagePerEdge": 0.004,
+    "byTag": {
+      "heat": {
+        "shotTag": "heat",
+        "damagePerEdge": 0.009
+      },
+      "cold": {
+        "shotTag": "chill",
+        "damagePerEdge": 0.008
+      },
+      "chill": {
+        "shotTag": "chill",
+        "damagePerEdge": 0.008
+      },
+      "shock": {
+        "shotTag": "shock",
+        "damagePerEdge": 0.007
+      },
+      "toxic": {
+        "shotTag": "toxic",
+        "damagePerEdge": 0.007
+      },
+      "mass": {
+        "shotTag": "mass",
+        "damagePerEdge": 0.004,
+        "knockbackPctPerEdge": 0.1
+      },
+      "flow": {
+        "shotTag": "flow",
+        "damagePerEdge": 0.006
+      },
+      "air": {
+        "shotTag": "air",
+        "damagePerEdge": 0.0056
+      },
+      "gravity": {
+        "shotTag": "gravity",
+        "damagePerEdge": 0.0056
+      },
+      "vitality": {
+        "shotTag": "vitality",
+        "damagePerEdge": 0.0044
+      },
+      "pierce": {
+        "shotTag": "pierce",
+        "damagePerEdge": 0.003,
+        "pierceChancePerEdge": 0.15,
+        "pierceCount": 1
+      }
+    }
+  },
+  "offers": {
+    "_tune": "DNA spawn rates — fill empty unlocked seats; do not flood past inventory cap.",
+    "fillUnlockedSeats": true,
+    "offerSize": 4,
+    "guaranteedDnaWhenNeed": true,
+    "abilityWeight": 0.22,
+    "fuseWeight": 0.1,
+    "abilityBonusPerPressure": 0.003,
+    "fuseBonusPerPressure": 0.0015,
+    "maxAbilityWeight": 0.4,
+    "maxFuseWeight": 0.2,
+    "minDnaWeightWhenFilling": 0.60
+  },
+  "forms": {
+    "_tune": "Hive bonds unlock delivery forms. priority: higher wins when multiple match. bolt = default (no form).",
+    "beam": {
+      "priority": 20,
+      "requireTag": "heat",
+      "minBondEdges": 1,
+      "pierce": 5,
+      "color": "#ff6b35",
+      "stats": {
+        "speed": 900,
+        "radius": 10,
+        "range": 520,
+        "cooldown": 0.14,
+        "knockback": 8
+      }
+    },
+    "spray": {
+      "priority": 16,
+      "requireTag": "mass",
+      "minBondEdges": 1,
+      "pellets": 5,
+      "spread": 0.55,
+      "pelletDamage": 0.42,
+      "color": "#c9a227",
+      "stats": {
+        "speed": 520,
+        "radius": 5,
+        "range": 280,
+        "cooldown": 0.55,
+        "knockback": 55
+      }
+    },
+    "rocket": {
+      "priority": 18,
+      "requireTag": "cold",
+      "requireTagsAlt": [
+        "chill"
+      ],
+      "minBondEdges": 1,
+      "splashRadius": 78,
+      "splashFalloff": 0.45,
+      "color": "#7ec8e3",
+      "stats": {
+        "speed": 220,
+        "radius": 14,
+        "range": 480,
+        "cooldown": 0.85,
+        "knockback": 120
+      }
+    }
+  },
+  "balance": {
+    "_tune": "Pattern payout scales (not adjacency — see adjacency.byTag).",
+    "tagPowerFlatScale": 0.05,
+    "revealDamageFlat": 2.7,
+    "chipDamageScale": 0.060,
+    "protocolDamageScale": 0.909,
+    "ringScales": [1.0, 1.0, 0.85, 0.70, 0.55, 0.40, 0.25],
+    "_ringScalesNote": "Discovery incentive: per-chip scale by ring0 occupancy when NO patterns match. Index is # of chips (0-6). Clever partial with patterns > mindless full without."
+  },
+  "patterns": [
+    {
+      "id": "mass_pair",
+      "name": "Mass Pair",
+      "secret": false,
+      "rule": "adjacent_shared_tag",
+      "tag": "mass",
+      "minEdges": 1,
+      "bonus": {
+        "kind": "tag_power",
+        "pct": 0.01
+      },
+      "bonusLabel": "+tiny mass weight",
+      "_fantasy": "Two neighboring mass proteins — modest weight. Motif-scale; discover by seating."
+    },
+    {
+      "id": "mono_ring",
+      "name": "Mono Ring",
+      "secret": false,
+      "rule": "all_same_tag",
+      "minSlots": 3,
+      "tagsAny": null,
+      "bonus": {
+        "kind": "tag_power",
+        "pct": 0.01
+      },
+      "bonusLabel": "+1% tag power",
+      "_fantasy": "Fill innermost ring with one tag — tall ring. Discover accidentally."
+    },
+    {
+      "id": "alternating_pair",
+      "name": "Alternating Pair",
+      "secret": false,
+      "rule": "alternating_two_tags",
+      "minSlots": 4,
+      "tagsAny": null,
+      "bonus": {
+        "kind": "mixed_axes",
+        "damageFlat": 0.5,
+        "knockbackPct": 0.22,
+        "pierceChance": 0.35,
+        "pierceCount": 1
+      },
+      "bonusLabel": "+KB · pierce chance",
+      "_fantasy": "ABAB on innermost ring — wide mix. Discover accidentally."
+    },
+    {
+      "id": "mirror_lattice",
+      "name": "Mirror Lattice",
+      "secret": false,
+      "rule": "ring_symmetry",
+      "symmetry": "mirror",
+      "minFilled": 2,
+      "bonus": {
+        "kind": "symmetry_damage",
+        "color": 0.25,
+        "exact": 0.4
+      },
+      "bonusLabels": {
+        "color": "+0.25 dmg (mirror color)",
+        "exact": "+0.4 dmg (mirror exact)"
+      },
+      "bonusLabel": "+0.25–0.4 dmg (mirror match)",
+      "_fantasy": "Mirror axis with matching proteins (same tag = color; same id = exact). Occupancy alone does not pay."
+    },
+    {
+      "id": "opposite_echo",
+      "name": "Opposite Echo",
+      "secret": false,
+      "rule": "ring_symmetry",
+      "symmetry": "rotate180",
+      "minFilled": 2,
+      "bonus": {
+        "kind": "symmetry_damage",
+        "color": 0.35,
+        "exact": 0.5
+      },
+      "bonusLabels": {
+        "color": "+0.35 dmg (180° color)",
+        "exact": "+0.5 dmg (180° exact)"
+      },
+      "bonusLabel": "+0.35–0.5 dmg (180° match)",
+      "_fantasy": "Opposite seats with matching proteins. Occupancy alone does not pay."
+    },
+    {
+      "id": "triple_spin",
+      "name": "Triple Spin",
+      "secret": false,
+      "rule": "ring_symmetry",
+      "symmetry": "rotate120",
+      "minFilled": 3,
+      "bonus": {
+        "kind": "symmetry_damage",
+        "color": 0.4,
+        "exact": 0.6
+      },
+      "bonusLabels": {
+        "color": "+0.4 dmg (120° color)",
+        "exact": "+0.6 dmg (120° exact)"
+      },
+      "bonusLabel": "+0.4–0.6 dmg (120° match)",
+      "_fantasy": "Three-fold matching proteins. Occupancy alone does not pay."
+    },
+    {
+      "id": "secret_triad",
+      "name": "???",
+      "secret": true,
+      "rule": "authored_shape",
+      "shape": [
+        "N",
+        "NE",
+        "SW"
+      ],
+      "minSlots": 3,
+      "bonus": {
+        "kind": "reveal",
+        "unlockId": "secret_triad"
+      },
+      "bonusLabel": "secret find",
+      "_fantasy": "Undocumented until found."
+    }
+  ],
+  "gabenBrief": {
+    "discovery": "Typed adjacency teaches the shot; patterns are accidental finds. Seats are scarce — burn inventory DNA to open more. Offers top up empties, never unlimited stockpile."
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "_comment": "Phase A loadout contract (Day 061). Schema only — World still uses interim inventory until Day 062+. Hex UI = Phase B; ringSlots here is the data shape, not the final Sephiria complexity.",
+
+  "version": 1,
+
+  "attack": {
+    "id": null,
+    "source": "defaultProtocol",
+    "_note": "Single primary fire protocol. Id resolves via elements / craft registry. DNA hex modifies this (Phase B)."
+  },
+
+  "ability": [
+    {
+      "slot": "A",
+      "moduleId": "blink",
+      "_note": "Starter Ability A = Blink-Dash (absorbs data/player.json dash knobs on Day 064)."
+    },
+    {
+      "slot": "B",
+      "moduleId": null,
+      "_note": "Empty until Lab Offer fills it. Try-and-feel modules in ability_modules.json."
+    }
+  ],
+
+  "dnaInventory": {
+    "chips": [],
+    "cap": null,
+    "_note": "Run inventory bag. Accrue from Lab Offers; place onto hive seats. Burn to unlock seats."
+  },
+
+  "hex": {
+    "center": "self",
+    "_note": "Geometry lives in data/dna_patterns.json hex — this mirrors center only for loadout contract."
+  },
+
+  "actions": {
+    "fire": "hold — Attack protocol",
+    "castA": "edge — Ability A",
+    "castB": "edge — Ability B",
+    "dash": "deprecated — use castA (Blink) after Day 064"
+  },
+
+  "defaults": {
+    "attackElementId": "pulse",
+    "abilityA": "blink",
+    "abilityB": null
+  }
+}

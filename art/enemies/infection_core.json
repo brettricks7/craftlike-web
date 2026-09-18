@@ -1,0 +1,21 @@
+{
+  "frameCount": 3,
+  "fps": 5,
+  "anims": {
+    "idle": [
+      0,
+      0,
+      0
+    ],
+    "move": [
+      0,
+      1
+    ],
+    "telegraph": [
+      1
+    ],
+    "hurt": [
+      2
+    ]
+  }
+}

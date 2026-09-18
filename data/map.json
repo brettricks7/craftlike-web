@@ -1,0 +1,114 @@
+{
+  "_comment": "Circulatory Flow map balance. The run is a seeded branching tree of blood vessels: depth = layers of chambers, routes = the vessel TYPES connecting them. Blood pressure is the risk dial — arteries raise it for loot, bypasses lower it to recover. Every number is a balance knob; tests/vesselmap.test.js re-verifies structure and bounds after any wiggle.",
+
+  "depth": 8,
+  "width": { "min": 2, "max": 3 },
+  "maxExits": 3,
+  "pinchDepths": [3],
+
+  "wavesPerChamber": { "base": 3, "perDepth": 0.4, "max": 6 },
+  "endBonusWaves": 1,
+  "depthWaveFactor": 2.2,
+
+  "pressure": { "start": 50, "min": 0, "max": 100 },
+
+  "pressureEffects": {
+    "_comment": "Chamber threat scales with current pressure; sustained overpressure literally damages the nanobot.",
+    "intensityPerPoint": 0.01,
+    "minIntensity": 0.3,
+    "overpressureThreshold": 90,
+    "overpressureDps": 0.6
+  },
+
+  "routePreviewTroll": {
+    "_comment": "Day 025 — optional UI spice: at high pressure, one route card may show a fake label. Off by default. Sim always uses real exit.type.",
+    "enabled": false,
+    "pressureThreshold": 75,
+    "chance": 0.35
+  },
+
+  "routes": {
+    "artery": {
+      "label": "Blocked Artery",
+      "blurb": "Massive resistance. Massive reward.",
+      "color": "#e63946",
+      "weight": 3,
+      "pressureDelta": 15,
+      "intensity": 1.45,
+      "rewards": { "score": 100, "elementChance": 1.0, "heal": 0 }
+    },
+    "vein": {
+      "label": "Vein",
+      "blurb": "Steady flow. A fair fight.",
+      "color": "#4cc9f0",
+      "weight": 5,
+      "pressureDelta": 0,
+      "intensity": 1.0,
+      "rewards": { "score": 40, "elementChance": 0.35, "heal": 5 }
+    },
+    "bypass": {
+      "label": "Bypass",
+      "blurb": "Quiet. Safe. Starving.",
+      "color": "#52b788",
+      "weight": 2,
+      "pressureDelta": -12,
+      "intensity": 0.6,
+      "rewards": { "score": 10, "elementChance": 0.05, "heal": 8 }
+    },
+    "capillary": {
+      "_tune": "Day 173/223 — optional side bet: loot then rejoin. Not the starve bypass.",
+      "label": "Capillary",
+      "blurb": "Optional side bet. Loot, then rejoin.",
+      "cardCallout": "SIDE BET · LOOT · REJOIN · ATTRITION RISK",
+      "color": "#c77dff",
+      "weight": 0,
+      "pressureDelta": 8,
+      "intensity": 1.35,
+      "rewards": { "score": 70, "elementChance": 0.85, "heal": 0 }
+    },
+    "rejoin": {
+      "_tune": "Day 173 — unpaid hop off a capillary back onto the main vessel.",
+      "label": "Rejoin",
+      "blurb": "Back to the vessel.",
+      "color": "#8899aa",
+      "weight": 0,
+      "pressureDelta": 0,
+      "intensity": 1.0,
+      "rewards": { "score": 0, "elementChance": 0, "heal": 0 }
+    },
+    "shortcut": {
+      "_tune": "Day 169 — greedy skip: ~3× vein intensity/rewards; placed by shortcuts{} not weight.",
+      "label": "Fistula Shortcut",
+      "blurb": "Skip a chamber. Triple the fight. Triple the take.",
+      "cardCallout": "3× THREAT · 3× LOOT · SKIP AHEAD",
+      "color": "#f72585",
+      "weight": 0,
+      "skipLayers": 2,
+      "pressureDelta": 22,
+      "intensity": 3.0,
+      "rewards": { "score": 120, "elementChance": 1.0, "heal": 0 }
+    }
+  },
+
+  "shortcuts": {
+    "_comment": "Day 169 — optional skip edges. skipLayers=2 means depth d → d+2.",
+    "enabled": true,
+    "skipLayers": 2,
+    "chance": 0.42,
+    "maxPerDepth": 2
+  },
+
+  "capillaries": {
+    "_comment": "Day 173 — optional extra chambers that rejoin a main node at the same depth. chance per parent node from depth 1.",
+    "enabled": true,
+    "chance": 0.38,
+    "maxPerDepth": 2
+  },
+
+  "greedRamp": {
+    "_comment": "Day 180 — greed routes scale in. The EXTRA threat/loot above the vein baseline is multiplied by floor + (1-floor)*min(1, destDepth/rampDepth): survivable-with-scars early, full spice from rampDepth on. Route cards show the effective numbers.",
+    "routes": ["shortcut", "capillary"],
+    "rampDepth": 5,
+    "floor": 0.4
+  }
+}

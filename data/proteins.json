@@ -1,0 +1,828 @@
+{
+  "_comment": "Proteins (CEO 2026-08-06) — gene-chip families that drive hive bonds, forms, and weaknesses. File was elements.json; code may still use data.elements as an alias. Offers present unlocked proteins; place onto Hex DNA. defaultProtocol is the weak starter Attack. unlockedStart is the fresh-profile pool.",
+  "starting": [
+    "pulse"
+  ],
+  "startingStock": {},
+  "lootBiasCurve": [
+    6,
+    5,
+    4,
+    3,
+    2,
+    1,
+    1,
+    1,
+    1
+  ],
+  "elements": [
+    {
+      "id": "pulse",
+      "name": "Pulse",
+      "icon": "\ud83d\udca0",
+      "tags": [
+        "air"
+      ],
+      "tier": 0,
+      "droppable": false,
+      "offerable": false,
+      "stats": {
+        "damage": 11,
+        "speed": 400,
+        "radius": 5,
+        "cooldown": 0.45,
+        "range": 400,
+        "knockback": 25
+      }
+    },
+    {
+      "id": "fire",
+      "name": "Ignition",
+      "icon": "\ud83d\udd25",
+      "tags": [
+        "heat"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "stats": {
+        "damage": 11,
+        "speed": 360,
+        "radius": 6,
+        "cooldown": 0.45,
+        "range": 420,
+        "knockback": 40
+      },
+      "offerable": true,
+      "art": "art/fragments/fire.png"
+    },
+    {
+      "id": "water",
+      "name": "Hydrocode",
+      "icon": "\ud83d\udca7",
+      "tags": [
+        "flow"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "stats": {
+        "damage": 7,
+        "speed": 420,
+        "radius": 6,
+        "cooldown": 0.3,
+        "range": 460,
+        "knockback": 60
+      },
+      "offerable": true,
+      "art": "art/fragments/water.png"
+    },
+    {
+      "id": "earth",
+      "name": "Lattice",
+      "icon": "\ud83e\udea8",
+      "tags": [
+        "mass"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "stats": {
+        "damage": 18,
+        "speed": 240,
+        "radius": 10,
+        "cooldown": 0.8,
+        "range": 360,
+        "knockback": 140
+      },
+      "offerable": true,
+      "art": "art/fragments/earth.png"
+    },
+    {
+      "id": "wind",
+      "name": "Slipstream",
+      "icon": "\ud83c\udf2c\ufe0f",
+      "tags": [
+        "air"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "stats": {
+        "damage": 4,
+        "speed": 540,
+        "radius": 5,
+        "cooldown": 0.18,
+        "range": 520,
+        "knockback": 20
+      },
+      "offerable": true,
+      "art": "art/fragments/wind.png"
+    },
+    {
+      "id": "ice",
+      "name": "Cryoseal",
+      "icon": "\u2744\ufe0f",
+      "tags": [
+        "cold"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "stats": {
+        "damage": 8,
+        "speed": 380,
+        "radius": 7,
+        "cooldown": 0.5,
+        "range": 420,
+        "knockback": 50
+      },
+      "offerable": true,
+      "art": "art/fragments/ice.png"
+    },
+    {
+      "id": "spark",
+      "name": "Arc",
+      "icon": "\u26a1",
+      "tags": [
+        "shock"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "stats": {
+        "damage": 9,
+        "speed": 600,
+        "radius": 4,
+        "cooldown": 0.4,
+        "range": 480,
+        "knockback": 10
+      },
+      "offerable": true,
+      "art": "art/fragments/spark.png"
+    },
+    {
+      "id": "spore",
+      "name": "Sporeprint",
+      "icon": "\ud83c\udf44",
+      "tags": [
+        "toxic"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "stats": {
+        "damage": 6,
+        "speed": 300,
+        "radius": 8,
+        "cooldown": 0.55,
+        "range": 380,
+        "knockback": 15
+      },
+      "offerable": true,
+      "art": "art/fragments/spore.png"
+    },
+    {
+      "id": "void",
+      "name": "Nullwell",
+      "icon": "\ud83d\udd73\ufe0f",
+      "tags": [
+        "gravity"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "stats": {
+        "damage": 7,
+        "speed": 280,
+        "radius": 9,
+        "cooldown": 0.9,
+        "range": 400,
+        "knockback": 0
+      },
+      "offerable": true,
+      "art": "art/fragments/void.png"
+    },
+    {
+      "id": "crystal",
+      "name": "Facet",
+      "icon": "\ud83d\udc8e",
+      "tags": [
+        "pierce"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "stats": {
+        "damage": 12,
+        "speed": 460,
+        "radius": 5,
+        "cooldown": 0.6,
+        "range": 500,
+        "knockback": 30
+      },
+      "offerable": true,
+      "art": "art/fragments/crystal.png"
+    },
+    {
+      "id": "prism",
+      "name": "Prismcode",
+      "icon": "\ud83d\udd0d",
+      "tags": [
+        "pierce"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "stats": {
+        "damage": 10,
+        "speed": 500,
+        "radius": 4,
+        "cooldown": 0.55,
+        "range": 540,
+        "knockback": 18
+      },
+      "offerable": true,
+      "art": "art/fragments/prism.png"
+    },
+    {
+      "id": "coil",
+      "name": "Inductor",
+      "icon": "\ud83d\udd01",
+      "tags": [
+        "shock"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "stats": {
+        "damage": 8,
+        "speed": 420,
+        "radius": 6,
+        "cooldown": 0.48,
+        "range": 440,
+        "knockback": 22
+      },
+      "offerable": true,
+      "art": "art/fragments/coil.png"
+    },
+    {
+      "id": "bloom",
+      "name": "Mycocode",
+      "icon": "\ud83c\udf3f",
+      "tags": [
+        "toxic"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "stats": {
+        "damage": 5,
+        "speed": 320,
+        "radius": 9,
+        "cooldown": 0.62,
+        "range": 400,
+        "knockback": 12
+      },
+      "offerable": true,
+      "art": "art/fragments/bloom.png"
+    },
+    {
+      "id": "surge",
+      "name": "Ripcurrent",
+      "icon": "\ud83c\udf0a",
+      "tags": [
+        "flow"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "stats": {
+        "damage": 9,
+        "speed": 440,
+        "radius": 7,
+        "cooldown": 0.42,
+        "range": 480,
+        "knockback": 45
+      },
+      "offerable": true,
+      "art": "art/fragments/surge.png"
+    },
+    {
+      "id": "serum",
+      "name": "Serum Sip",
+      "icon": "\ud83d\udc96",
+      "tags": [
+        "vitality"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 4,
+        "speed": 320,
+        "radius": 5,
+        "cooldown": 0.55,
+        "range": 360,
+        "knockback": 8
+      },
+      "_note": "Day 099 \u2014 scarce heal-on-hit DNA; not in unlockedStart",
+      "effects": [
+        {
+          "tag": "vitality",
+          "effect": "heal_on_hit",
+          "heal": 1,
+          "color": "#ff8fab",
+          "icon": "\ud83d\udc96"
+        }
+      ],
+      "art": "art/fragments/serum.png"
+    },
+    {
+      "id": "ember",
+      "name": "Ember Bit",
+      "icon": "\ud83d\udd25",
+      "tags": [
+        "heat"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 9,
+        "speed": 380,
+        "radius": 5,
+        "cooldown": 0.48,
+        "range": 390,
+        "knockback": 18
+      },
+      "art": "art/fragments/ember.png"
+    },
+    {
+      "id": "frost",
+      "name": "Frost Nub",
+      "icon": "\u2744\ufe0f",
+      "tags": [
+        "cold"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 7,
+        "speed": 340,
+        "radius": 5,
+        "cooldown": 0.5,
+        "range": 400,
+        "knockback": 12
+      },
+      "art": "art/fragments/frost.png"
+    },
+    {
+      "id": "toxin",
+      "name": "Toxin Droplet",
+      "icon": "\u2620\ufe0f",
+      "tags": [
+        "toxic"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 6,
+        "speed": 300,
+        "radius": 6,
+        "cooldown": 0.6,
+        "range": 350,
+        "knockback": 5
+      },
+      "art": "art/fragments/toxin.png"
+    },
+    {
+      "id": "magnet",
+      "name": "Magnet Grain",
+      "icon": "\ud83e\uddf2",
+      "tags": [
+        "gravity"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 5,
+        "speed": 280,
+        "radius": 7,
+        "cooldown": 0.55,
+        "range": 340,
+        "knockback": 30
+      },
+      "art": "art/fragments/magnet.png"
+    },
+    {
+      "id": "shard",
+      "name": "Glass Shard",
+      "icon": "\ud83d\udd37",
+      "tags": [
+        "pierce"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 8,
+        "speed": 420,
+        "radius": 4,
+        "cooldown": 0.42,
+        "range": 450,
+        "knockback": 10
+      },
+      "art": "art/fragments/shard.png"
+    },
+    {
+      "id": "buzz",
+      "name": "Buzz Filament",
+      "icon": "\u26a1",
+      "tags": [
+        "shock"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 7,
+        "speed": 400,
+        "radius": 5,
+        "cooldown": 0.4,
+        "range": 380,
+        "knockback": 14
+      },
+      "art": "art/fragments/buzz.png"
+    },
+    {
+      "id": "moss",
+      "name": "Moss Patch",
+      "icon": "\ud83c\udf3f",
+      "tags": [
+        "flow"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 6,
+        "speed": 310,
+        "radius": 6,
+        "cooldown": 0.52,
+        "range": 360,
+        "knockback": 16
+      },
+      "art": "art/fragments/moss.png"
+    },
+    {
+      "id": "lead",
+      "name": "Lead Speck",
+      "icon": "\ud83e\udea8",
+      "tags": [
+        "mass"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 10,
+        "speed": 260,
+        "radius": 7,
+        "cooldown": 0.7,
+        "range": 320,
+        "knockback": 50
+      },
+      "art": "art/fragments/lead.png"
+    },
+    {
+      "id": "gust",
+      "name": "Gust Whisk",
+      "icon": "\ud83d\udca8",
+      "tags": [
+        "air"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 5,
+        "speed": 450,
+        "radius": 4,
+        "cooldown": 0.35,
+        "range": 420,
+        "knockback": 20
+      },
+      "art": "art/fragments/gust.png"
+    },
+    {
+      "id": "mirage",
+      "name": "Mirage Flicker",
+      "icon": "\u25c6",
+      "tags": [
+        "air"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 6,
+        "speed": 520,
+        "radius": 4,
+        "cooldown": 0.28,
+        "range": 380,
+        "knockback": 10
+      },
+      "fantasy": "Ghosts the lane",
+      "art": "art/fragments/mirage.png"
+    },
+    {
+      "id": "resin",
+      "name": "Resin Plug",
+      "icon": "\u25c6",
+      "tags": [
+        "mass"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 10,
+        "speed": 280,
+        "radius": 9,
+        "cooldown": 0.55,
+        "range": 320,
+        "knockback": 55
+      },
+      "fantasy": "Glue-shot mass",
+      "art": "art/fragments/resin.png"
+    },
+    {
+      "id": "needle",
+      "name": "Needle Thread",
+      "icon": "\u25c6",
+      "tags": [
+        "pierce"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 7,
+        "speed": 480,
+        "radius": 3,
+        "cooldown": 0.35,
+        "range": 520,
+        "knockback": 8
+      },
+      "fantasy": "Threads the corridor",
+      "art": "art/fragments/needle.png"
+    },
+    {
+      "id": "static",
+      "name": "Static Hiss",
+      "icon": "\u25c6",
+      "tags": [
+        "shock"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 8,
+        "speed": 400,
+        "radius": 5,
+        "cooldown": 0.3,
+        "range": 300,
+        "knockback": 15
+      },
+      "fantasy": "Hisses the current",
+      "art": "art/fragments/static.png"
+    },
+    {
+      "id": "brine",
+      "name": "Brine Film",
+      "icon": "\u25c6",
+      "tags": [
+        "flow"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 9,
+        "speed": 360,
+        "radius": 6,
+        "cooldown": 0.4,
+        "range": 360,
+        "knockback": 30
+      },
+      "fantasy": "Salty wash",
+      "art": "art/fragments/brine.png"
+    },
+    {
+      "id": "cinder",
+      "name": "Cinder Curl",
+      "icon": "\u25c6",
+      "tags": [
+        "heat"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 12,
+        "speed": 320,
+        "radius": 6,
+        "cooldown": 0.5,
+        "range": 340,
+        "knockback": 40
+      },
+      "fantasy": "Slow hot curl",
+      "art": "art/fragments/cinder.png"
+    },
+    {
+      "id": "quill",
+      "name": "Quill Burst",
+      "icon": "\u25c6",
+      "tags": [
+        "air"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 7,
+        "speed": 450,
+        "radius": 4,
+        "cooldown": 0.32,
+        "range": 400,
+        "knockback": 18
+      },
+      "fantasy": "Scatter of quills",
+      "art": "art/fragments/quill.png"
+    },
+    {
+      "id": "loom",
+      "name": "Loom Strand",
+      "icon": "\u25c6",
+      "tags": [
+        "gravity"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 5,
+        "speed": 380,
+        "radius": 4,
+        "cooldown": 0.45,
+        "range": 480,
+        "knockback": 5
+      },
+      "fantasy": "Binds the path",
+      "art": "art/fragments/loom.png"
+    },
+    {
+      "id": "rift",
+      "name": "Rift Speck",
+      "icon": "\u25c6",
+      "tags": [
+        "void"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 14,
+        "speed": 260,
+        "radius": 7,
+        "cooldown": 0.6,
+        "range": 280,
+        "knockback": 25
+      },
+      "fantasy": "Dense void core",
+      "art": "art/fragments/rift.png"
+    },
+    {
+      "id": "honey",
+      "name": "Honey Drop",
+      "icon": "\u25c6",
+      "tags": [
+        "mass"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 8,
+        "speed": 300,
+        "radius": 8,
+        "cooldown": 0.48,
+        "range": 300,
+        "knockback": 45
+      },
+      "fantasy": "Sweet sticky glue",
+      "art": "art/fragments/honey.png"
+    },
+    {
+      "id": "flake",
+      "name": "Flake Drift",
+      "icon": "\u25c6",
+      "tags": [
+        "cold"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 6,
+        "speed": 420,
+        "radius": 5,
+        "cooldown": 0.38,
+        "range": 360,
+        "knockback": 12
+      },
+      "fantasy": "Drifts cold",
+      "art": "art/fragments/flake.png"
+    },
+    {
+      "id": "pulsewave",
+      "name": "Pulse Wave",
+      "icon": "\u25c6",
+      "tags": [
+        "air"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 7,
+        "speed": 440,
+        "radius": 6,
+        "cooldown": 0.33,
+        "range": 420,
+        "knockback": 22
+      },
+      "fantasy": "Ripples outward",
+      "art": "art/fragments/pulsewave.png"
+    },
+    {
+      "id": "ink",
+      "name": "Ink Blot",
+      "icon": "\u25c6",
+      "tags": [
+        "toxic"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 9,
+        "speed": 340,
+        "radius": 7,
+        "cooldown": 0.42,
+        "range": 320,
+        "knockback": 18
+      },
+      "fantasy": "Blots the floor",
+      "art": "art/fragments/ink.png"
+    },
+    {
+      "id": "gear",
+      "name": "Gear Tooth",
+      "icon": "\u25c6",
+      "tags": [
+        "mass"
+      ],
+      "tier": 0,
+      "droppable": true,
+      "offerable": true,
+      "stats": {
+        "damage": 11,
+        "speed": 310,
+        "radius": 5,
+        "cooldown": 0.5,
+        "range": 300,
+        "knockback": 35
+      },
+      "fantasy": "Grinds through",
+      "art": "art/fragments/gear.png"
+    }
+  ],
+  "defaultProtocol": "pulse",
+  "loadoutCap": 3,
+  "unlockedStart": [
+    "fire",
+    "water",
+    "earth",
+    "wind"
+  ],
+  "depthUnlocks": {
+    "_comment": "Day 102 \u2014 depth bands may unlock +1 toy into the Offer pool. Never required to progress.",
+    "bands": [
+      {
+        "minDepth": 2,
+        "unlockCount": 1
+      },
+      {
+        "minDepth": 4,
+        "unlockCount": 1
+      },
+      {
+        "minDepth": 6,
+        "unlockCount": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "_comment": "Day 125 — density knobs for broken combos. Gaben: rare/exciting, not every Lab.",
+  "enabled": true,
+  "chance": 0.06,
+  "_tune": "Lowered from 0.08 after feel — spikes every ~16 equal-tier fuses at default.",
+  "chanceMin": 0.03,
+  "chanceMax": 0.12,
+  "rules": [
+    {
+      "id": "volatile_heat_shock",
+      "whenTags": ["heat", "shock"],
+      "requireBoth": true,
+      "spike": {
+        "damageMult": 1.55,
+        "addEffect": { "effect": "burn", "dps": 6, "duration": 2.2 },
+        "namePrefix": "Volatile"
+      }
+    },
+    {
+      "id": "volatile_pierce_flow",
+      "whenTags": ["pierce", "flow"],
+      "requireBoth": true,
+      "spike": {
+        "damageMult": 1.35,
+        "knockbackMult": 1.4,
+        "addEffect": { "effect": "pierce", "pierces": 2 },
+        "namePrefix": "Riptide"
+      }
+    },
+    {
+      "id": "volatile_vitality_mass",
+      "whenTags": ["vitality", "mass"],
+      "requireBoth": true,
+      "spike": {
+        "damageMult": 1.25,
+        "addEffect": { "effect": "heal_on_hit", "heal": 4 },
+        "namePrefix": "Blooming"
+      }
+    },
+    {
+      "id": "volatile_any_tier2",
+      "minTier": 2,
+      "chanceOverride": 0.1,
+      "spike": {
+        "damageMult": 1.2,
+        "namePrefix": "Fractured"
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "frameCount": 4,
+  "fps": 8,
+  "anims": {
+    "idle": [
+      0
+    ],
+    "move": [
+      0,
+      1
+    ],
+    "hurt": [
+      2
+    ],
+    "death": [
+      3
+    ]
+  }
+}

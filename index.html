@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!--
+    CSP keeps the renderer locked down (and silences Electron's security warning).
+    'unsafe-inline' is only granted to styles for the small <style> block below.
+  -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'unsafe-inline'" />
+  <title>Craftlike</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #0d0f14;
+    }
+    canvas {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      cursor: crosshair;
+    }
+  </style>
+</head>
+<body>
+  <!-- The entire game renders into this single canvas. -->
+  <canvas id="game"></canvas>
+
+  <!--
+    Phase Web W.1 (Day 192): Dual-mode loader
+    - Electron: preload.cjs sets window.bridge synchronously before this runs
+    - Web: loader.js loads bridge-web.js first, then game.js
+  -->
+  <script type="module" src="loader.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+{
+  "_comment": "Presentation-only tag secondary cues (Day 262). Never read by src/world.js.",
+  "_day": 262,
+  "strength": 0.35,
+  "tags": {
+    "heat": {
+      "cue": "flicker-trail",
+      "flickerHz": 16,
+      "flickerAmp": 0.14,
+      "trailSegments": 2,
+      "tint": [251, 146, 60]
+    },
+    "chill": {
+      "cue": "pulse",
+      "pulseHz": 5.5,
+      "pulseAmp": 0.1,
+      "tint": [125, 211, 252]
+    },
+    "shock": {
+      "cue": "flicker-jitter",
+      "flickerHz": 32,
+      "flickerAmp": 0.18,
+      "jitterAmp": 1.2,
+      "tint": [250, 204, 21]
+    },
+    "flow": {
+      "cue": "trail",
+      "trailSegments": 3,
+      "trailAlpha": 0.28,
+      "tint": [56, 189, 248]
+    },
+    "pierce": {
+      "cue": "glint",
+      "glintHz": 18,
+      "glintAmp": 0.16,
+      "trailSegments": 1,
+      "tint": [226, 232, 240]
+    },
+    "toxic": {
+      "cue": "wobble",
+      "wobbleHz": 9,
+      "wobbleAmp": 1.4,
+      "tint": [74, 222, 128]
+    },
+    "mass": {
+      "cue": "trail",
+      "trailSegments": 2,
+      "trailAlpha": 0.35,
+      "trailWide": 1.35,
+      "tint": [196, 163, 90]
+    },
+    "gravity": {
+      "cue": "droop",
+      "droopHz": 4,
+      "droopAmp": 2.0,
+      "tint": [168, 85, 247]
+    },
+    "air": {
+      "cue": "wisps",
+      "wispSegments": 2,
+      "wispAlpha": 0.22,
+      "tint": [186, 230, 253]
+    },
+    "vitality": {
+      "cue": "pulse",
+      "pulseHz": 7,
+      "pulseAmp": 0.09,
+      "tint": [52, 211, 153]
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "_comment": "Depth bands → biome presentation (Slice 2.3). min/maxDepth inclusive on node.depth (0-based). look merges under room template look. enemyTint tints circle fallback + soft overlay on sprites. props append to room template props (cosmetic only). Demo: depth 1 = vessel cyan, depth 4 = neural magenta, depth 7 = marrow crimson.",
+  "bands": [
+    {
+      "id": "vessel",
+      "minDepth": 0,
+      "maxDepth": 2,
+      "label": "Vessel",
+      "bg": "#0a121c",
+      "grid": "rgba(76,201,240,0.06)",
+      "enemyTint": "#4cc9f0",
+      "look": {
+        "fill": "#101820",
+        "edge": "#4cc9f0",
+        "neon": "rgba(76, 201, 240, 0.5)"
+      },
+      "props": []
+    },
+    {
+      "id": "neural",
+      "minDepth": 3,
+      "maxDepth": 5,
+      "label": "Neural",
+      "bg": "#120a18",
+      "grid": "rgba(224,64,251,0.07)",
+      "enemyTint": "#e040fb",
+      "look": {
+        "fill": "#1a1024",
+        "edge": "#e040fb",
+        "neon": "rgba(224, 64, 251, 0.55)",
+        "wallPattern": "neural"
+      },
+      "props": [
+        { "id": "synapse_node", "x": 120, "y": 600, "size": 42 },
+        { "id": "axon_filament", "x": 1160, "y": 140, "size": 44 }
+      ]
+    },
+    {
+      "id": "marrow",
+      "minDepth": 6,
+      "maxDepth": 99,
+      "label": "Marrow",
+      "bg": "#1a0c0c",
+      "grid": "rgba(230,57,70,0.07)",
+      "enemyTint": "#e63946",
+      "look": {
+        "fill": "#221010",
+        "edge": "#e63946",
+        "neon": "rgba(230, 57, 70, 0.5)",
+        "wallPattern": "marrow"
+      },
+      "props": [
+        { "id": "marrow_crystal", "x": 140, "y": 140, "size": 46 },
+        { "id": "ossicle_spike", "x": 1140, "y": 580, "size": 40 }
+      ]
+    }
+  ]
+}
